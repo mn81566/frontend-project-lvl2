@@ -15,5 +15,4 @@ program
 // Example call:
 // $ custom-help --help`);
 
-// const parseText = process.argv;
 program.parse(process.argv);
