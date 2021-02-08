@@ -10,7 +10,7 @@
 // const { Command } = require('commander'); // include commander in git clone of commander repo
 import { Command } from 'commander';
 const program = new Command();
-program.version('0.0.1');
+program.version('0.0.1')
 
 program
   .description('Compares two configuration files and shows a difference.')
