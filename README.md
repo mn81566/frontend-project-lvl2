@@ -3,3 +3,4 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ca05ad0e67dec238d69f/maintainability)](https://codeclimate.com/github/mn81566/frontend-project-lvl2/maintainability)
 
+[![Node CI](https://github.com/mn81566/frontend-project-lvl2/workflows/Node%20CI/badge.svg)](https://github.com/mn81566/frontend-project-lvl2/actions)
