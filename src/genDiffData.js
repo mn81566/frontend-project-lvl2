@@ -26,7 +26,6 @@ const formattedCompareRes = (obj1, obj2, compareRes) => {
     return [newKey, value];
     // }
   });
-
   return res;
 };
 
