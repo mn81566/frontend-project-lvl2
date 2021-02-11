@@ -3,6 +3,8 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ca05ad0e67dec238d69f/maintainability)](https://codeclimate.com/github/mn81566/frontend-project-lvl2/maintainability)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ca05ad0e67dec238d69f/test_coverage)](https://codeclimate.com/github/mn81566/frontend-project-lvl2/test_coverage)
+
 [![Node CI](https://github.com/mn81566/frontend-project-lvl2/workflows/Node%20CI/badge.svg)](https://github.com/mn81566/frontend-project-lvl2/actions)
 
 
