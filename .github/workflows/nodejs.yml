@@ -4,7 +4,7 @@ name: Node CI
 # Trigger the workflow on push or pull request
 on:
   - push
-  # - pull_request
+  - pull_request
 
 jobs:
   build:
@@ -32,19 +32,21 @@ jobs:
       - name: npm install
         # Install project
         run: |
-          make install          
+          make install
+        # Add environment variables
+        env:
+          CI: true
       - name: Run linter
         # Run Linter
         run: |
           make lint
+      - name: Test & publish code coverage
+        # Publish code coverage on Code Climate
+        # https://github.com/paambaati/codeclimate-action
+        uses: paambaati/codeclimate-action@v2.7.4
         # Add Code Climate secret key
-        # env:
-        #   CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        # with:
-        #   coverageCommand: make test-coverage
-        #   debug: true
-
-        # from site Github Actions
         env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
