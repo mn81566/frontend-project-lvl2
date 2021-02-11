@@ -41,6 +41,10 @@ const initDiff = (filepath1, filepath2) => {
   const filepathResolved1 = path.resolve(process.cwd(), filepath1);
   const filepathResolved2 = path.resolve(process.cwd(), filepath2);
 
+  if ((fs.existsSync(filepathResolved1) && fs.existsSync(filepathResolved2)) === false) {
+    throw new Error('Не найден файл');
+  }
+
   const dataFile1 = JSON.parse(fs.readFileSync(filepathResolved1, 'utf-8'));
   const dataFile2 = JSON.parse(fs.readFileSync(filepathResolved2, 'utf-8'));
 
