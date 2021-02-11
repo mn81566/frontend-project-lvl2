@@ -24,7 +24,7 @@ const formattedCompareRes = (obj1, obj2, compareRes) => {
     // if (obj1[key] === value && obj2[key] === value) {
     const newKey = `  ${key}`;
     return [newKey, value];
-    // }
+    //  }
   });
   return res;
 };
