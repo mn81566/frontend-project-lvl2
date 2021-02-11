@@ -9,7 +9,7 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 
 const filePath1 = getFixturePath('file1.json');
 const filePath2 = getFixturePath('file2.json');
-const str = `{
+const right1 = `{
   - follow: false
     host: hexlet.io
   - proxy: 123.234.53.22
@@ -17,7 +17,12 @@ const str = `{
   + timeout: 20
   + verbose: true
 }`;
+const filePath3 = getFixturePath('fileEmpty1.json');
+const filePath4 = getFixturePath('fileEmpty2.json');
+const right2 = '{\n}';
+// const filePath5 = getFixturePath('fileNoObject.json');
 
 test('genDiffData', () => {
-  expect(initDiff(filePath1, filePath2)).toEqual(str);
+  expect(initDiff(filePath1, filePath2)).toEqual(right1);
+  expect(initDiff(filePath3, filePath4)).toEqual(right2);
 });
