@@ -1,4 +1,4 @@
-import { test, expect } from '@jest/globals';
+import { test, expect, describe } from '@jest/globals';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import initDiff from '../src/genDiffData.js';
@@ -22,7 +22,19 @@ const filePath4 = getFixturePath('fileEmpty2.json');
 const right2 = '{\n}';
 // const filePath5 = getFixturePath('fileNoObject.json');
 
-test('genDiffData', () => {
-  expect(initDiff(filePath1, filePath2)).toEqual(right1);
-  expect(initDiff(filePath3, filePath4)).toEqual(right2);
+describe('Json', () => {
+  test('genDiffData', () => {
+    expect(initDiff(filePath1, filePath2)).toEqual(right1);
+    expect(initDiff(filePath3, filePath4)).toEqual(right2);
+  });
+});
+
+const filePath5 = getFixturePath('file1.yml');
+const filePath6 = getFixturePath('file2.yml');
+describe('Yml', () => {
+  test('genDiffData', () => {
+		expect(initDiff(filePath5, filePath6)).toEqual(right1);
+    // expect(path.extname(filePath5)).toEqual(path.extname(filePath6));
+		// expect(initDiff(filePath3, filePath4)).toEqual(right2);
+  });
 });

@@ -8,9 +8,17 @@
 [![Node CI](https://github.com/mn81566/frontend-project-lvl2/workflows/Node%20CI/badge.svg)](https://github.com/mn81566/frontend-project-lvl2/actions)
 
 
-## Работа программы
+## Сравнение json файлов
 ```sh
-$ gendiff filepath1.json ~/st/filepath2.json 
+$ gendiff __fixtures__/file1.json __fixtures__/file2.json
 ```
 
-[![asciicast](https://asciinema.org/a/nDvKg3qOX0mivHRXgqJnwcmdQ.svg)](https://asciinema.org/a/nDvKg3qOX0mivHRXgqJnwcmdQ)
+[![asciicast](https://asciinema.org/a/wXWA2d6CC416TpDNKYpYTG390.svg)](https://asciinema.org/a/wXWA2d6CC416TpDNKYpYTG390)
+
+
+## Сравнение yaml файлов
+```sh
+$ gendiff __fixtures__/file1.yml __fixtures__/file2.yml
+```
+
+[![asciicast](https://asciinema.org/a/mcSMrLvJVRaPmrs5Iuk3GMt84.svg)](https://asciinema.org/a/mcSMrLvJVRaPmrs5Iuk3GMt84)
