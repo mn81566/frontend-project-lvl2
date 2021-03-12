@@ -30,3 +30,11 @@ $ gendiff __fixtures__/fileRecurs1.json __fixtures__/fileRecurs2.json
 ```
 
 [![asciicast](https://asciinema.org/a/P6Vm7RAeLEvSIEqbAmz3pMo2f.svg)](https://asciinema.org/a/P6Vm7RAeLEvSIEqbAmz3pMo2f)
+
+
+## Плоский формат
+```sh
+$ gendiff -f plain __fixtures__/fileRecurs1.json __fixtures__/fileRecurs2.json
+```
+
+[![asciicast](https://asciinema.org/a/tMbNotpU3uEusiF9Ahim6Dk7J.svg)](https://asciinema.org/a/tMbNotpU3uEusiF9Ahim6Dk7J)

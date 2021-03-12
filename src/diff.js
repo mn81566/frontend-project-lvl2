@@ -4,7 +4,7 @@ import fs from 'fs';
 // import yaml from 'js-yaml';
 import * as parser from './parsers.js';
 // import * as utils from './utils.js';
-import getFormattedStylishDiff from '../formatters/stylish.js';
+import formatDiff from '../formatters/index.js';
 
 export const resolvePath = (filePath) => path.resolve(process.cwd(), filePath);
 
@@ -49,13 +49,13 @@ const createKeysDescription = (firtstEl, secondEl) => {
   }, []);
 };
 
-export const formatDiff = (diff, format) => {
-  if (format === 'stylish') {
-    return getFormattedStylishDiff(diff);
-  }
+// export const formatDiff = (diff, format) => {
+//   if (format === 'stylish') {
+//     return getFormattedStylishDiff(diff);
+//   }
 
-  throw new Error('Не найден форматтер');
-};
+//   throw new Error('Не найден форматтер');
+// };
 
 
 // TMP
@@ -84,14 +84,8 @@ export const getDiff = (filePath1, filePath2, options = { format: 'stylish' }) =
   const dataFile1 = parser.parseFile(filePathResolved1);
   const dataFile2 = parser.parseFile(filePathResolved2);
 
-  // console.log(dataFile1);
-
-  // const compareRes = compare(dataFile1, dataFile2);
   const compareRes = createKeysDescription(dataFile1, dataFile2);
   const formattedRes = formatDiff(compareRes, options.format);
-  // const compareResFormatted = formatCompareRes(dataFile1, dataFile2, compareRes);
-  // const resAsString = getDiffAsString(compareResFormatted);
 
-  // return resAsString;
   return formattedRes;
 };

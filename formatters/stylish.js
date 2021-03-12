@@ -32,7 +32,16 @@ const getFormattedStylishDiff = (diff) => {
       }
       return value;
     };
-    let res = diffSorted.reduce((acc, { name, meta, children }) => {
+    const formatResult = (str) => {
+      let res = `{\n${str}${offset}}`;
+      if (depth > 0) {
+        res += '\n';
+      }
+
+      return res;
+    };
+
+    const res = diffSorted.reduce((acc, { name, meta, children }) => {
       if (children !== undefined) {
         return acc.concat(`${offset}${indents}${indents}${name}: ${inner(children, depth + 1)}`);
       }
@@ -50,12 +59,13 @@ const getFormattedStylishDiff = (diff) => {
         `${offset}${indents}+ ${name}: `, `${getValue(meta.secondElValue)}\n`);
     }, '');
 
-    res = `{\n${res}${offset}}`;
-    if (depth > 0) {
-      res += '\n';
-    }
+    // res = `{\n${res}${offset}}`;
+    // if (depth > 0) {
+    //   res += '\n';
+    // }
 
-    return res;
+    // return res;
+    return formatResult(res);
   };
   return inner(diff, 0);
 };
