@@ -1,0 +1,37 @@
+{
+  "timeout": 20,
+  "verbose": true,
+  "host": "hexlet.io",
+  "setting6": {
+    "key": "vrt",
+    "doge": {
+      "wow": "vv",
+      "sad": {
+        "dd": 1000,
+        "sad": {
+          "dd": 1000,
+          "aa": 1
+        }        
+      }
+    },
+    "ffff": {
+      "AA": {
+        "CC": 24,
+        "BB": 123213,
+        "DD": {
+          "EE": 89
+        }
+      }
+    }
+  },
+  "werere": [1, 2, [3, 4]],
+  "zz": {
+    "as": 12,
+    "bs": {
+      "er": 343,
+      "rt": {
+        "tt": 987
+      }
+    }
+  }
+}

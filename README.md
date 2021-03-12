@@ -22,3 +22,11 @@ $ gendiff __fixtures__/file1.yml __fixtures__/file2.yml
 ```
 
 [![asciicast](https://asciinema.org/a/mcSMrLvJVRaPmrs5Iuk3GMt84.svg)](https://asciinema.org/a/mcSMrLvJVRaPmrs5Iuk3GMt84)
+
+
+## Рекурсивное сравнение
+```sh
+$ gendiff __fixtures__/fileRecurs1.json __fixtures__/fileRecurs2.json
+```
+
+[![asciicast](https://asciinema.org/a/P6Vm7RAeLEvSIEqbAmz3pMo2f.svg)](https://asciinema.org/a/P6Vm7RAeLEvSIEqbAmz3pMo2f)
