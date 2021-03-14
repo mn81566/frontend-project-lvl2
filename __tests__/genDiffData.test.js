@@ -80,6 +80,53 @@ Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`;
+const rightPlainEmpty = "";
+
+const rightJsonRecursive = `{
+    "common": {
+      "+ follow": false,
+      "  setting1": "Value 1",
+      "- setting2": 200,
+      "- setting3": true,
+      "+ setting3": null,
+      "+ setting4": "blah blah",
+      "+ setting5": {
+          "  key5": "value5",
+        },
+        "setting6": {
+            "doge": {
+              "- wow": "",
+              "+ wow": "so much",
+            },
+          "  key": "value",
+          "+ ops": "vops",
+        },
+    },
+    "group1": {
+      "- baz": "bas",
+      "+ baz": "bars",
+      "  foo": "bar",
+      "- nest": {
+          "  key": "value",
+        },
+      "+ nest": "str",
+    },
+  "- group2": {
+      "  abc": "12345",
+      "  deep": {
+          "  id": "45",
+        },
+    },
+  "+ group3": {
+      "  deep": {
+          "  id": {
+              "  number": "45",
+            },
+        },
+      "  fee": "100500",
+    },
+}`;
+const rightJsonEmpty = '{\n}';
 
 describe('Json', () => {
   test('stylish', () => {
@@ -89,18 +136,30 @@ describe('Json', () => {
   });
   test('plain', () => {
     expect(diff.getDiff(filePathRecurs1, filePathRecurs2, { format: 'plain' })).toEqual(rightPlainRecursive);
+    expect(diff.getDiff(filePath3, filePath4, { format: 'plain' })).toEqual(rightPlainEmpty);
+  });
+  test('json', () => {
+    expect(diff.getDiff(filePathRecurs1, filePathRecurs2, { format: 'json' })).toEqual(rightJsonRecursive);
+    expect(diff.getDiff(filePath3, filePath4, { format: 'json' })).toEqual(rightJsonEmpty);
   });
 });
 
 const filePath5 = getFixturePath('file1.yml');
 const filePath6 = getFixturePath('file2.yml');
-const filePath7 = getFixturePath('fileRecurs1.yml');
-const filePath8 = getFixturePath('fileRecurs2.yml');
-describe('Stylish yml', () => {
-  test('genDiffData', () => {
+const filePathRecurs5 = getFixturePath('fileRecurs1.yml');
+const filePathRecurs6 = getFixturePath('fileRecurs2.yml');
+describe('Yml', () => {
+  test('stylish', () => {
     expect(diff.getDiff(filePath5, filePath6)).toEqual(rightStylishFlat);
-    expect(diff.getDiff(filePath7, filePath8)).toEqual(rightStylishRecursive);
+    expect(diff.getDiff(filePathRecurs5, filePathRecurs6)).toEqual(rightStylishRecursive);
     // expect(path.extname(filePath5)).toEqual(path.extname(filePath6));
     // expect(initDiff(filePath3, filePath4)).toEqual(right2);
+  });
+  test('plain', () => {
+    expect(diff.getDiff(filePathRecurs5, filePathRecurs6, { format: 'plain' })).toEqual(rightPlainRecursive);
+  });
+  test('json', () => {
+    expect(diff.getDiff(filePathRecurs5, filePathRecurs6, { format: 'json' })).toEqual(rightJsonRecursive);
+    // expect(diff.getDiff(filePath3, filePath4, { format: 'plain' })).toEqual(rightPlainEmpty);
   });
 });
